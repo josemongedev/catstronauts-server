@@ -10,6 +10,8 @@ async function startApolloServer() {
     resolvers,
   });
 
+  await server.listen({ port: process.env.PORT || 4000 });
+
   const { url } = await startStandaloneServer(server, {
     context: async () => {
       return {
